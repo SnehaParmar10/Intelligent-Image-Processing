@@ -142,3 +142,10 @@ Thumbs.db
 *.webp
 temp/
 test_images/
+
+
+outputs/
+uploads/
+__pycache__/
+*.pyc
+venv/

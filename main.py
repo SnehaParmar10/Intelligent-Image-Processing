@@ -16,6 +16,8 @@ including acquisition, preprocessing, enhancement, segmentation, feature
 extraction, evaluation, and visualization.
 ================================================================================
 """
+import matplotlib
+matplotlib.use('Agg')
 
 import cv2
 import numpy as np
@@ -41,7 +43,12 @@ def main():
     task1.welcome_message()
     
     # Image path
-    image_path = r"C:\Users\gtcam\OneDrive\Pictures\Camera Roll\OIP (2).webp"
+    # image_path = r"C:\Users\gtcam\OneDrive\Pictures\Camera Roll\OIP (2).webp"
+    # image_path = "images/test.jpg"
+    import os
+
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    image_path = os.path.join(BASE_DIR, "images", "test1.jpg")
     output_dir = "outputs"
     
     try:
@@ -110,7 +117,23 @@ def main():
         print(f"ERROR: {str(e)}")
         import traceback
         traceback.print_exc()
+        
+def main_with_path(image_path):
+    output_dir = "outputs"
+
+    # reuse your existing logic
+    original_image, grayscale_image = task2.process_image(image_path)
+    noisy_image, restored_images, enhanced_image = task3.enhance_and_restore(grayscale_image, output_dir)
+    segmented_images = task4.segment_and_morph(enhanced_image, output_dir)
+    edge_images, featured_image = task5.extract_features(original_image, enhanced_image, output_dir)
+    metrics = task6.evaluate_performance(original_image, grayscale_image, noisy_image, restored_images, enhanced_image)
+
+    task7.final_visualization(
+        original_image, grayscale_image, noisy_image,
+        restored_images, enhanced_image, segmented_images,
+        featured_image, output_dir
+    )
 
 if __name__ == "__main__":
     main()
-    plt.show()
+    # plt.show()
