@@ -365,7 +365,7 @@ def final_visualization(original, grayscale, noisy, restored, enhanced,
     print("\n--- TASK 7: FINAL VISUALIZATION & ANALYSIS ---\n")
     
     # Create pipeline visualization
-    create_pipeline_visualization(original, grayscale, noisy, restored, 
+    fig = create_pipeline_visualization(original, grayscale, noisy, restored, 
                                 enhanced, segmented, featured, output_dir)
     
     # Print comprehensive conclusions

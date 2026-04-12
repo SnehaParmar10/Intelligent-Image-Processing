@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #0f172a;
+            color: white;
+            margin: 0;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .full {
+            grid-column: span 2;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #3b82f6;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>📊 Processing Results</h1>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Preprocessing</h3>
+            <img src="/{{ outputs.preprocessing }}">
+        </div>
+
+        <div class="card">
+            <h3>Enhancement</h3>
+            <img src="/{{ outputs.enhancement }}">
+        </div>
+
+        <div class="card">
+            <h3>Segmentation</h3>
+            <img src="/{{ outputs.segmentation }}">
+        </div>
+
+        <div class="card">
+            <h3>Features</h3>
+            <img src="/{{ outputs.features }}">
+        </div>
+
+        <div class="card full">
+            <h3>Final Pipeline</h3>
+            <img src="/{{ outputs.final }}">
+        </div>
+
+    </div>
+
+    <a href="/">⬅ Upload Another Image</a>
+</div>
+
+</body>
+</html>

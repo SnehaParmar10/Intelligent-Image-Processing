@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Image Processing Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        input, select, button {
+            padding: 12px;
+            margin: 10px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        button {
+            background: #3b82f6;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2563eb;
+        }
+
+        #loader {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+
+    <script>
+        function showLoader() {
+            document.getElementById("loader").style.display = "block";
+        }
+    </script>
+</head>
+
+<body>
+<div class="container">
+
+    <h1>🚀 AI Image Processing Dashboard</h1>
+
+    <div class="card">
+        <form action="/upload" method="post" enctype="multipart/form-data" onsubmit="showLoader()">
+            
+            <input type="file" name="image" required><br>
+
+            <select name="filter">
+                <option value="full">Full Pipeline</option>
+                <option value="edge">Edge Detection</option>
+                <option value="blur">Blur</option>
+            </select><br>
+
+            <button type="submit">Process Image</button>
+        </form>
+
+        <div id="loader">⏳ Processing Image...</div>
+    </div>
+
+</div>
+</body>
+</html>
