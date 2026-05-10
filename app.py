@@ -22,7 +22,7 @@ def index():
 #     if file.filename == "":
 #         return "No file selected"
 
-#     input_path = os.path.join(UPLOAD_FOLDER, file.filename)
+#     input_path = os.path.join(UPLOAD_FOLDER, file.filename......)
 #     file.save(input_path)
 
 #     #  CALL YOUR EXISTING PIPELINE
